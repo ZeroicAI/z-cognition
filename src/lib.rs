@@ -11,6 +11,8 @@ pub mod prelude;
 pub mod reasoning;
 
 // Re-exports
-pub use bdi::{Belief, BeliefBase, Desire, Goal, Intention, IntentionStack};
+pub use bdi::{BDIAgent, Belief, BeliefBase, Desire, Goal, Intention, IntentionStack};
 pub use error::CognitionError;
-pub use planning::{Action, Plan, Planner};
+pub use planning::{Action, Plan, Planner, State};
+pub use reasoning::{ReasoningEngine, Rule};
+pub use decision::UtilityFunction;

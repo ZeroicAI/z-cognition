@@ -9,7 +9,7 @@ pub struct BDIAgent {
 }
 
 impl BDIAgent {
-    // Create new BDI agent
+    /// Create new BDI agent
     pub fn new() -> Self {
         Self {
             beliefs: BeliefBase::new(),

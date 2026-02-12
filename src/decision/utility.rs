@@ -1,13 +1,25 @@
 /// Utility function for decision-making
-#[derive(Debug)]
+
 pub struct UtilityFunction {
     name: String,
+    evaluator: Box<dyn Fn(&[String]) -> f64 + Send + Sync>,
 }
 
 impl UtilityFunction {
-    /// Create a new utility function
-    pub fn new(name: impl Into<String>) -> Self {
-        Self { name: name.into() }
+    /// Create a new utility function with a custom evaluator
+    pub fn new(name: impl Into<String>, evaluator: impl Fn(&[String]) -> f64 + Send + Sync + 'static) -> Self {
+        Self {
+            name: name.into(),
+            evaluator: Box::new(evaluator),
+        }
+    }
+
+    /// Create a simple utility function with default evaluator
+    pub fn simple(name: impl Into<String>) -> Self {
+        Self {
+            name: name.into(),
+            evaluator: Box::new(|_| 0.5),
+        }
     }
 
     /// Get the name
@@ -15,9 +27,18 @@ impl UtilityFunction {
         &self.name
     }
 
-    /// Evaluate utility (placeholder)
-    pub fn evaluate(&self, _state: &[String]) -> f64 {
-        // Placeholder - real implementation would calculate utility
-        0.5
+    /// Evaluate utility
+    pub fn evaluate(&self, state: &[String]) -> f64 {
+        (self.evaluator)(state)
     }
 }
+
+impl std::fmt::Debug for UtilityFunction {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("UtilityFunction")
+            .field("name", &self.name)
+            .field("evaluator", &"<fn>")
+            .finish()
+    }
+}
+
