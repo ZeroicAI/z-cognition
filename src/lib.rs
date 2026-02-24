@@ -14,5 +14,5 @@ pub mod reasoning;
 pub use bdi::{BDIAgent, Belief, BeliefBase, Desire, Goal, Intention, IntentionStack};
 pub use error::CognitionError;
 pub use planning::{Action, Plan, Planner, State};
-pub use reasoning::{ReasoningEngine, Rule};
+pub use reasoning::{Inference, ReasoningEngine, Rule};
 pub use decision::UtilityFunction;
