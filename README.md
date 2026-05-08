@@ -1,12 +1,12 @@
-# zeroicai-cognition
+# z-cognition
 
-[![Crates.io](https://img.shields.io/crates/v/zeroicai-cognition.svg)](https://crates.io/crates/zeroicai-cognition)
-[![Documentation](https://docs.rs/zeroicai-cognition/badge.svg)](https://docs.rs/zeroicai-cognition)
+[![Crates.io](https://img.shields.io/crates/v/z-cognition.svg)](https://crates.io/crates/z-cognition)
+[![Documentation](https://docs.rs/z-cognition/badge.svg)](https://docs.rs/z-cognition)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
 **Reasoning, planning, decision-making, and cognitive architectures for intelligent agents.**
 
-`zeroicai-cognition` provides the "brain" of autonomous agents, implementing cognitive architectures, reasoning engines, planning algorithms and decision-making frameworks. It enables agents to think, reason, plan and make intelligent decisions based on their beliefs, desires and intentions.
+`z-cognition` provides the "brain" of autonomous agents, implementing cognitive architectures, reasoning engines, planning algorithms and decision-making frameworks. It enables agents to think, reason, plan and make intelligent decisions based on their beliefs, desires and intentions.
 
 ---
 
@@ -28,7 +28,7 @@ This crate provides:
 
 The Belief-Desire-Intention model is a mature cognitive architecture for deliberative agents:
 ```rust
-use zeroicai_cognition::{BeliefBase, DesireSet, IntentionStack, BDIAgent};
+use z_cognition::{BeliefBase, DesireSet, IntentionStack, BDIAgent};
 
 // Beliefs - What the agent knows about the world
 let mut beliefs = BeliefBase::new();
@@ -52,7 +52,7 @@ let agent = BDIAgent::new(beliefs, desires, intentions);
 
 Beliefs represent the agent's knowledge about the world:
 ```rust
-use zeroicai_cognition::{Belief, BeliefBase, BeliefRevision};
+use z_cognition::{Belief, BeliefBase, BeliefRevision};
 
 let mut belief_base = BeliefBase::new();
 
@@ -73,7 +73,7 @@ belief_base.revise(Belief::fact("is_raining", false))?;
 
 Desires represent the agent's motivational states:
 ```rust
-use zeroicai_cognition::{Desire, Goal, GoalType};
+use z_cognition::{Desire, Goal, GoalType};
 
 // Achievement goal
 let goal = Goal::new(
@@ -97,7 +97,7 @@ let desire = Desire::new(goal, 0.9); // Priority: 0.9
 
 Intentions are commitments to execute plans:
 ```rust
-use zeroicai_cognition::{Intention, Plan, Action};
+use z_cognition::{Intention, Plan, Action};
 
 // Define a plan
 let plan = Plan::new("travel_home")
@@ -116,7 +116,7 @@ intention.execute(&mut context).await?;
 
 Goal-oriented action planning:
 ```rust
-use zeroicai_cognition::{Planner, State, Goal, Action};
+use z_cognition::{Planner, State, Goal, Action};
 
 // Define initial state
 let initial_state = State::new()
@@ -146,7 +146,7 @@ let plan = planner.plan(&initial_state, &goal)?;
 
 Utility-based and probabilistic decision frameworks:
 ```rust
-use zeroicai_cognition::{DecisionMaker, Decision, Utility};
+use z_cognition::{DecisionMaker, Decision, Utility};
 
 let decision_maker = DecisionMaker::new();
 
@@ -165,7 +165,7 @@ let choice = decision_maker.decide(&options, &beliefs)?;
 
 Logical inference and rule-based reasoning:
 ```rust
-use zeroicai_cognition::{ReasoningEngine, Rule, Fact};
+use z_cognition::{ReasoningEngine, Rule, Fact};
 
 let mut engine = ReasoningEngine::new();
 
@@ -232,13 +232,13 @@ let inferred = engine.infer()?;
 Add to your `Cargo.toml`:
 ```toml
 [dependencies]
-zeroicai-cognition = "0.1.0"
-zeroicai-core = "0.1.0"
+z-cognition = "0.1.0"
+z-core = "0.1.0"
 ```
 
 ### Complete BDI Agent Example
 ```rust
-use zeroicai_cognition::{
+use z_cognition::{
     BDIAgent, BeliefBase, DesireSet, IntentionStack,
     Belief, Desire, Goal, Intention, Plan, Action
 };
@@ -296,7 +296,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Planning Example
 ```rust
-use zeroicai_cognition::{Planner, State, Action};
+use z_cognition::{Planner, State, Action};
 
 async fn plan_delivery() -> Result<(), Box<dyn std::error::Error>> {
     // Initial state
@@ -346,7 +346,7 @@ async fn plan_delivery() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Reasoning Example
 ```rust
-use zeroicai_cognition::{ReasoningEngine, Rule, Fact};
+use z_cognition::{ReasoningEngine, Rule, Fact};
 
 fn reasoning_example() -> Result<(), Box<dyn std::error::Error>> {
     let mut engine = ReasoningEngine::new();
@@ -411,18 +411,18 @@ The BDI reasoning cycle:
 
 ## Related Crates
 
-- **[zeroicai-core](../zeroicai-core)** - Agent primitives and traits
-- **[zeroicai-messaging](../zeroicai-messaging)** - Agent communication
-- **[zeroicai-patterns](../zeroicai-patterns)** - Multi-agent coordination
-- **[zeroicai-runtime](../zeroicai-runtime)** - Agent execution engine
+- **[z-core](../z-core)** - Agent primitives and traits
+- **[z-messaging](../z-messaging)** - Agent communication
+- **[z-patterns](../z-patterns)** - Multi-agent coordination
+- **[z-runtime](../z-runtime)** - Agent execution engine
 
 ---
 
 ## Documentation
 
-Full API documentation is available on [docs.rs](https://docs.rs/zeroicai-cognition).
+Full API documentation is available on [docs.rs](https://docs.rs/z-cognition).
 
-For guides and tutorials, see [zeroicai-docs](https://github.com/zeroicai/zeroicai-docs).
+For guides and tutorials, see [z-docs](https://github.com/zeroicai/z-docs).
 
 ---
 
