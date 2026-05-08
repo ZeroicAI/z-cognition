@@ -1,4 +1,4 @@
-use agentropic_cognition::prelude::*;
+use z_cognition::prelude::*;
 
 fn main() {
     // Create a BDI agent

@@ -1,12 +1,12 @@
-# agentropic-cognition
+# zeroicai-cognition
 
-[![Crates.io](https://img.shields.io/crates/v/agentropic-cognition.svg)](https://crates.io/crates/agentropic-cognition)
-[![Documentation](https://docs.rs/agentropic-cognition/badge.svg)](https://docs.rs/agentropic-cognition)
+[![Crates.io](https://img.shields.io/crates/v/zeroicai-cognition.svg)](https://crates.io/crates/zeroicai-cognition)
+[![Documentation](https://docs.rs/zeroicai-cognition/badge.svg)](https://docs.rs/zeroicai-cognition)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
 **Reasoning, planning, decision-making, and cognitive architectures for intelligent agents.**
 
-`agentropic-cognition` provides the "brain" of autonomous agents, implementing cognitive architectures, reasoning engines, planning algorithms and decision-making frameworks. It enables agents to think, reason, plan and make intelligent decisions based on their beliefs, desires and intentions.
+`zeroicai-cognition` provides the "brain" of autonomous agents, implementing cognitive architectures, reasoning engines, planning algorithms and decision-making frameworks. It enables agents to think, reason, plan and make intelligent decisions based on their beliefs, desires and intentions.
 
 ---
 
@@ -28,7 +28,7 @@ This crate provides:
 
 The Belief-Desire-Intention model is a mature cognitive architecture for deliberative agents:
 ```rust
-use agentropic_cognition::{BeliefBase, DesireSet, IntentionStack, BDIAgent};
+use zeroicai_cognition::{BeliefBase, DesireSet, IntentionStack, BDIAgent};
 
 // Beliefs - What the agent knows about the world
 let mut beliefs = BeliefBase::new();
@@ -52,7 +52,7 @@ let agent = BDIAgent::new(beliefs, desires, intentions);
 
 Beliefs represent the agent's knowledge about the world:
 ```rust
-use agentropic_cognition::{Belief, BeliefBase, BeliefRevision};
+use zeroicai_cognition::{Belief, BeliefBase, BeliefRevision};
 
 let mut belief_base = BeliefBase::new();
 
@@ -73,7 +73,7 @@ belief_base.revise(Belief::fact("is_raining", false))?;
 
 Desires represent the agent's motivational states:
 ```rust
-use agentropic_cognition::{Desire, Goal, GoalType};
+use zeroicai_cognition::{Desire, Goal, GoalType};
 
 // Achievement goal
 let goal = Goal::new(
@@ -97,7 +97,7 @@ let desire = Desire::new(goal, 0.9); // Priority: 0.9
 
 Intentions are commitments to execute plans:
 ```rust
-use agentropic_cognition::{Intention, Plan, Action};
+use zeroicai_cognition::{Intention, Plan, Action};
 
 // Define a plan
 let plan = Plan::new("travel_home")
@@ -116,7 +116,7 @@ intention.execute(&mut context).await?;
 
 Goal-oriented action planning:
 ```rust
-use agentropic_cognition::{Planner, State, Goal, Action};
+use zeroicai_cognition::{Planner, State, Goal, Action};
 
 // Define initial state
 let initial_state = State::new()
@@ -146,7 +146,7 @@ let plan = planner.plan(&initial_state, &goal)?;
 
 Utility-based and probabilistic decision frameworks:
 ```rust
-use agentropic_cognition::{DecisionMaker, Decision, Utility};
+use zeroicai_cognition::{DecisionMaker, Decision, Utility};
 
 let decision_maker = DecisionMaker::new();
 
@@ -165,7 +165,7 @@ let choice = decision_maker.decide(&options, &beliefs)?;
 
 Logical inference and rule-based reasoning:
 ```rust
-use agentropic_cognition::{ReasoningEngine, Rule, Fact};
+use zeroicai_cognition::{ReasoningEngine, Rule, Fact};
 
 let mut engine = ReasoningEngine::new();
 
@@ -232,13 +232,13 @@ let inferred = engine.infer()?;
 Add to your `Cargo.toml`:
 ```toml
 [dependencies]
-agentropic-cognition = "0.1.0"
-agentropic-core = "0.1.0"
+zeroicai-cognition = "0.1.0"
+zeroicai-core = "0.1.0"
 ```
 
 ### Complete BDI Agent Example
 ```rust
-use agentropic_cognition::{
+use zeroicai_cognition::{
     BDIAgent, BeliefBase, DesireSet, IntentionStack,
     Belief, Desire, Goal, Intention, Plan, Action
 };
@@ -296,7 +296,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Planning Example
 ```rust
-use agentropic_cognition::{Planner, State, Action};
+use zeroicai_cognition::{Planner, State, Action};
 
 async fn plan_delivery() -> Result<(), Box<dyn std::error::Error>> {
     // Initial state
@@ -346,7 +346,7 @@ async fn plan_delivery() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Reasoning Example
 ```rust
-use agentropic_cognition::{ReasoningEngine, Rule, Fact};
+use zeroicai_cognition::{ReasoningEngine, Rule, Fact};
 
 fn reasoning_example() -> Result<(), Box<dyn std::error::Error>> {
     let mut engine = ReasoningEngine::new();
@@ -411,18 +411,18 @@ The BDI reasoning cycle:
 
 ## Related Crates
 
-- **[agentropic-core](../agentropic-core)** - Agent primitives and traits
-- **[agentropic-messaging](../agentropic-messaging)** - Agent communication
-- **[agentropic-patterns](../agentropic-patterns)** - Multi-agent coordination
-- **[agentropic-runtime](../agentropic-runtime)** - Agent execution engine
+- **[zeroicai-core](../zeroicai-core)** - Agent primitives and traits
+- **[zeroicai-messaging](../zeroicai-messaging)** - Agent communication
+- **[zeroicai-patterns](../zeroicai-patterns)** - Multi-agent coordination
+- **[zeroicai-runtime](../zeroicai-runtime)** - Agent execution engine
 
 ---
 
 ## Documentation
 
-Full API documentation is available on [docs.rs](https://docs.rs/agentropic-cognition).
+Full API documentation is available on [docs.rs](https://docs.rs/zeroicai-cognition).
 
-For guides and tutorials, see [agentropic-docs](https://github.com/agentropic/agentropic-docs).
+For guides and tutorials, see [zeroicai-docs](https://github.com/zeroicai/zeroicai-docs).
 
 ---
 
@@ -461,4 +461,4 @@ at your option.
 
 ---
 
-*Part of the [Agentropic](https://github.com/agentropic) ecosystem for agent-oriented programming in Rust.*
+*Part of the [ZeroicAI](https://github.com/zeroicai) ecosystem for agent-oriented programming in Rust.*

@@ -1,4 +1,4 @@
-use agentropic_cognition::prelude::*;
+use z_cognition::prelude::*;
 
 #[test]
 fn create_action() {

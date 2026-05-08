@@ -1,18 +1,18 @@
 ﻿[package]
-name = "agentropic-cognition"
+name = "z-cognition"
 version = "0.1.0"
 edition = "2021"
-authors = ["Agentropic <agentropic@gmail.com>"]
+authors = ["ZeroicAI <devzeroicai@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Reasoning, planning, BDI architecture, and decision-making for agents"
-repository = "https://github.com/agentropic/agentropic-cognition"
-documentation = "https://docs.rs/agentropic-cognition"
+repository = "https://github.com/ZeroicAI/z-cognition"
+documentation = "https://docs.rs/z-cognition"
 keywords = ["agents", "bdi", "planning", "reasoning", "ai"]
 categories = ["simulation", "algorithms"]
 readme = "README.md"
 
 [dependencies]
-agentropic-core = { git = "https://github.com/agentropic/agentropic-core", branch = "main" }
+z-core = { git = "https://github.com/ZeroicAI/z-core", branch = "main" }
 
 async-trait = "0.1"
 tokio = { version = "1.0", features = ["full"] }

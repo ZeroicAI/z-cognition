@@ -1,2 +1,2 @@
-[patch."https://github.com/pycogram/agentropic-core"]
-agentropic-core = { version = "0.1.0", path = "../agentropic-core" }
+[patch."https://github.com/ZeroicAI/z-core"]
+z-core = { version = "0.1.0", path = "../z-core" }

@@ -18,4 +18,4 @@ pub use crate::decision::UtilityFunction;
 pub use crate::CognitionError;
 
 // Re-export from core
-pub use agentropic_core::prelude::*;
+pub use z_core::prelude::*;
