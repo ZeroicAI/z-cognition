@@ -2,17 +2,17 @@
 name = "z-cognition"
 version = "0.1.0"
 edition = "2021"
-authors = ["ZeroicAI <devzeroicai@gmail.com>"]
+authors = ["zeroicai <devzeroicai@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Reasoning, planning, BDI architecture, and decision-making for agents"
-repository = "https://github.com/ZeroicAI/z-cognition"
+repository = "https://github.com/zeroicai/z-cognition"
 documentation = "https://docs.rs/z-cognition"
 keywords = ["agents", "bdi", "planning", "reasoning", "ai"]
 categories = ["simulation", "algorithms"]
 readme = "README.md"
 
 [dependencies]
-z-core = { git = "https://github.com/ZeroicAI/z-core", branch = "main" }
+z-core = { git = "https://github.com/zeroicai/z-core", branch = "main" }
 
 async-trait = "0.1"
 tokio = { version = "1.0", features = ["full"] }
