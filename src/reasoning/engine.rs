@@ -20,7 +20,7 @@ impl ReasoningEngine {
         Self { rules: Vec::new() }
     }
 
-    /// Add a rule
+    // Add a rule
     pub fn add_rule(&mut self, rule: Rule) {
         self.rules.push(rule);
     }
