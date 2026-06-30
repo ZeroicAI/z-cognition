@@ -34,6 +34,18 @@ impl State {
     pub fn variables(&self) -> &HashMap<String, String> {
         &self.variables
     }
+
+    /// Returns true if every variable in `goal` exists with the same value in self
+    pub fn satisfies(&self, goal: &State) -> bool {
+        goal.variables.iter().all(|(k, v)| self.matches(k, v))
+    }
+
+    /// Stable string key for visited-state deduplication during planning
+    pub(crate) fn canonical_key(&self) -> String {
+        let mut pairs: Vec<_> = self.variables.iter().collect();
+        pairs.sort_by_key(|(k, _)| k.as_str());
+        pairs.iter().map(|(k, v)| format!("{}={}", k, v)).collect::<Vec<_>>().join(",")
+    }
 }
 
 impl Default for State {
