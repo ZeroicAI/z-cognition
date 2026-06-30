@@ -14,11 +14,21 @@ impl UtilityFunction {
         }
     }
 
-    /// Create a simple utility function with default evaluator
+    /// Create a utility function that scores state as the proportion of
+    /// non-empty, non-false entries — a sensible default for binary goal states.
     pub fn simple(name: impl Into<String>) -> Self {
         Self {
             name: name.into(),
-            evaluator: Box::new(|_| 0.5),
+            evaluator: Box::new(|state| {
+                if state.is_empty() {
+                    return 0.0;
+                }
+                let positive = state
+                    .iter()
+                    .filter(|s| !s.is_empty() && s.as_str() != "false" && s.as_str() != "0")
+                    .count();
+                positive as f64 / state.len() as f64
+            }),
         }
     }
 

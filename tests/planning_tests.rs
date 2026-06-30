@@ -32,9 +32,12 @@ fn planner_creation() {
     let planner = Planner::new();
     assert_eq!(planner.actions().len(), 0);
 
+    // Trivially satisfied goal (initial already meets goal) succeeds with no actions
+    let state = State::new().set("at", "A");
+    assert!(planner.plan(&state, &state.clone()).is_ok());
+
+    // Unsatisfied goal with no available actions returns an error
     let initial = State::new().set("at", "A");
     let goal = State::new().set("at", "B");
-
-    let result = planner.plan(&initial, &goal);
-    assert!(result.is_ok());
+    assert!(planner.plan(&initial, &goal).is_err());
 }
